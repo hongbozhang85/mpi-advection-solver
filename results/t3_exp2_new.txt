@@ -1,0 +1,65 @@
+##########################
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.42e-02 sec, GFLOPs rate=5.20e+01 (per core 1.625e+00)
+Average error of final field:  5.445e-06
+##########################
+Advection of a 2000x1000 global field over 1x32 processes for 100 steps.
+Advection time 8.00e-02 sec, GFLOPs rate=5.75e+01 (per core 1.796e+00)
+Average error of final field:  2.415e-06
+##########################
+Advection of a 3000x1000 global field over 1x32 processes for 100 steps.
+Advection time 1.14e-01 sec, GFLOPs rate=6.06e+01 (per core 1.894e+00)
+Average error of final field:  1.573e-06
+##########################
+Advection of a 4000x1000 global field over 1x32 processes for 100 steps.
+Advection time 1.57e-01 sec, GFLOPs rate=5.86e+01 (per core 1.831e+00)
+Average error of final field:  1.170e-06
+##########################
+Advection of a 5000x1000 global field over 1x32 processes for 100 steps.
+Advection time 1.97e-01 sec, GFLOPs rate=5.84e+01 (per core 1.826e+00)
+Average error of final field:  9.323e-07
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r83
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+r84
+
+======================================================================================
+                  Resource Usage on 2017-04-20 03:16:40:
+   Job Id:             4020846.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      0.29
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:00:32                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:00:11        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

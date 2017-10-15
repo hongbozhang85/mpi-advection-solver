@@ -1,0 +1,87 @@
+\section{Task 6 Wide Halo Transfers}
+
+\subsection{Implementation}
+The implementation of wide halo method is quite straightforward. Update the halo with $w$ width every $w$ simulation time steps. 
+For each time step in a cycle of total $w$, the part of field to be upated decreases by two.
+Therefore, at time step $0$, the size of that part is $(M_{loc}+2*w-2)(N_{loc}+2*w-2)$, at the step $i$, the size is 
+$(M_{loc}+2w-2-2i)(N_{loc}+2*w-2-2i)$.
+Again, similar to Task 4, in each communication,
+we collect $w$ rows/columns into a temporary buffer firstly and then send/receive in one time. This will reduce the $t_s$ term
+in communication cost.
+
+\subsection{Performance Model}
+There is a trade off in this approach. The startup time $t_s$ part of communication time is decreased by a factor of $w$. However,
+the computation cost increases, since one has to do more computation for additional part of field to be updated.
+
+In derivation of the following performance model, we assume that simulation time cycle $r$ is much larger than $w$,
+since if it is not, the wide halo method will be worse than the method without wide halo, which is not our interest.
+Furthermore, for simplicity, we assume that $r \% w = 0$.
+
+The total time cost is 
+\[
+	t_{\textrm{total}} = \frac{r}{w} t_{\textrm{cycle}}
+\]
+where $t_{\textrm{cycle}}= t_{\textrm{comp}} + t_{\textrm{comm}}$ is the cost in one cycle ($w$) of time steps.
+
+For the communication cost per cycle
+\[
+	t_{\textrm{comm}} = 2 \left[ 2 t_s + w\cdot \left( N_{loc} + M_{loc} + 2 w \right) t_w  \right]
+\]
+
+For the computation cost per cycle
+\begin{eqnarray*}
+	t_{\textrm{comm}} &=& \sum^{w-1}_{0} (M_{loc}+2w-2-2i)(N_{loc}+2*w-2-2i) t_f \\
+	&=& w M_{loc} N_{loc} t_f + w(w-1) (M_{loc}+N_{loc}) t_f + \frac{2}{3} w (w-1) (2w-1) t_f
+\end{eqnarray*}
+where the summation over $i$ reflects the part of field to be updated changes in each time step.
+
+Collecing all the terms, the final total cost is
+\begin{equation} \label{equ4}
+	t_{\textrm{total}} = r \left[ 
+		\frac{4}{w} t_s + 2 \left( M_{loc} + N_{loc} + 2 w \right) t_w +
+		M_{loc} N_{loc} t_f + (w-1) (M_{loc}+N_{loc}) t_f + \frac{2}{3}(w-1) (2w-1) t_f
+		\right]
+\end{equation}
+where $N_{loc} = N/Q$ and $M_{loc} = M/Q$.
+
+Comparing wide halo Eq \ref{equ4} with non-wide halo Eq \ref{equ2}, there are two differences.
+The first one is the startup term in communication cost decreases by a factor of $w$, since $t_s$ is
+a relative large term, so this reduction is not negligible. The second one is the additional computation
+cost, which is proportional to $w$ or $w^2$, if $w$ is not small and comparable to $N_loc$ or $M_loc$,
+this term is comparable to the non-wide halo computation term $M_{loc} N_{loc} t_f$. Therefore, one 
+would be better not to choose a large $w$.
+
+Consequently, in the case where the communication cost is not negligible, the wide halo will have 
+a better performance due to the reduction of startup communication $t_s$ term.
+
+\subsection{Experiments}
+According to the argument in previous subsection, we should choose the case in which communication cost
+is large to do experiments.
+Hence we choose $P\neq Q$ and $M\neq N$ from the aspect ratio argument in Task 4. 
+
+In order to investigate the effect of wide halo method, we choose $P=4$, $Q=8$, $N=1\times10^4$, $M=2\times10^4$, 
+$r=100$, and vary $w = \{1,5,10,500\}$.  
+%In the second set of experiments, we vary $r=\{1,10,10^2,10^3\}$ and keep $w=5$. 
+I choose a large $w$ to show that when $w$ is large the total cost will increase due to the additional computation cost.
+The results are shown in Tab \ref{tab7}. The case of $w=1$ is the one without wide halo effect, we can 
+see that when $w$ increases (except the case $w=500$), the total time decreases, so the wide halo method is effective. 
+Furthermore, when $w=500$, the total cost increases by almost a factor of $2$. This is because when $w=500$, which
+is near $N_{loc} = 10^4/8 = 1250$, the additoinal computation cost is comparable to the original one.
+
+\begin{table}[h]
+	\centering
+	\caption{Wide halo effect. Experiment Set 1, varying $w$ and keep $r, P, Q, M, N$ fixed.}
+	\label{tab7}
+	\begin{tabular}{lllll}
+		\hline
+		w               & $1$ & $5$ & $10$ & $500$ \\ \hline
+		time            & $8.65$s & $8.52$s & $8.21$s & $16.7$s  \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Comparison with Overlapping Method}
+The wide halo method will reduce the startup communication cost, the $t_s$ term.  
+The overlapping method will also reduce the communication cost, however, it reduce the 
+data transfering term, the $t_w$ term, by overlapping it with computation.
+
+Consequently, both methods will reduce the communication cost, but from different aspects.

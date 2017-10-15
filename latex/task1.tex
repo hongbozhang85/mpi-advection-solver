@@ -1,0 +1,28 @@
+\section{Task 1 Deadlock Issues}
+
+According to experiment results, the code will fails due to deadlock with $M \geq 504$ for $P=1$, and $M=N$.
+It will have deadlock since the all the processes are sending messages to their right neighbors and waiting for their returns.
+If the message is small, the message can be packed into the initial buffer, therefore it will behave as non-blocking.
+However, for larger sizes it fails. It will transit from a non-blocking send to a blocking send when the message becomes too large. 
+
+From above experiment results, we can infer that the size of initial buffer is about \lstinline{1024*sizeof(int)}. Taking the halo data and some overheads into account, the $M$ should be smaller than $504$. However, for general $P$, $Q$, $N$ and $w$, the size of $M$ and $N$ of triggering deadlock should satisfy
+\[
+	\max{\left(\frac{M}{P}, \frac{N}{Q}\right)} + w \approx 512
+\]
+
+Without deploying non-blocking or buffered sends, we can change the order of sends/receives of processes. Odd processes will firstly send, then receive. Even processes will firstly receive, then send. The code can be found below.
+
+
+\begin{lstlisting}[language=c] 
+if ( rank % 2 == 1 ) {
+  MPI_Send(&V(u, 1, N_loc), M_loc, MPI_DOUBLE, rightProc, HALO_TAG, comm);
+  MPI_Recv(&V(u, 1, 0), M_loc, MPI_DOUBLE, leftProc, HALO_TAG, comm, MPI_STATUS_IGNORE);
+  MPI_Send(&V(u, 1, 1), M_loc, MPI_DOUBLE, leftProc, HALO_TAG, comm);
+  MPI_Recv(&V(u, 1, N_loc+1), M_loc, MPI_DOUBLE, rightProc, HALO_TAG, comm, MPI_STATUS_IGNORE);
+} else {
+  MPI_Recv(&V(u, 1, 0), M_loc, MPI_DOUBLE, leftProc, HALO_TAG, comm, MPI_STATUS_IGNORE);
+  MPI_Send(&V(u, 1, N_loc), M_loc, MPI_DOUBLE, rightProc, HALO_TAG, comm);
+  MPI_Recv(&V(u, 1, N_loc+1), M_loc, MPI_DOUBLE, rightProc, HALO_TAG, comm, MPI_STATUS_IGNORE);
+  MPI_Send(&V(u, 1, 1), M_loc, MPI_DOUBLE, leftProc, HALO_TAG, comm);
+}
+\end{lstlisting}

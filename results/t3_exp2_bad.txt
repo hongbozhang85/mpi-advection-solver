@@ -1,0 +1,34 @@
+##########################
+Advection of a 100x1000 global field over 1x32 processes for 100 steps.
+Advection time 8.16e-03 sec, GFLOPs rate=2.82e+01 (per core 8.811e-01)
+Average error of final field:  1.439e-04
+##########################
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.50e-02 sec, GFLOPs rate=5.11e+01 (per core 1.596e+00)
+Average error of final field:  5.445e-06
+##########################
+Advection of a 10000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.47e-01 sec, GFLOPs rate=5.14e+01 (per core 1.607e+00)
+Average error of final field:  4.637e-07
+##########################
+Advection of a 100000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.73e+00 sec, GFLOPs rate=4.87e+01 (per core 1.521e+00)
+Average error of final field:  4.629e-08
+##########################
+Advection of a 1000000x1000 global field over 1x32 processes for 100 steps.
+=>> PBS: job killed: walltime 50 exceeded limit 30
+mpirun: killing job...
+
+
+======================================================================================
+                  Resource Usage on 2017-04-20 01:35:23:
+   Job Id:             4019717.r-man2
+   Project:            c37
+   Exit Status:        271 (Linux Signal 15 SIGTERM Termination)
+   Service Units:      9.84
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:22:28                                   
+   Memory Requested:   16.0GB                Memory Used: 6.78GB          
+   Walltime requested: 00:00:30            Walltime Used: 00:06:09        
+   JobFS requested:    200.0MB                JobFS used: 1.0KB           
+======================================================================================

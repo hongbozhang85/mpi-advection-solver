@@ -1,0 +1,48 @@
+Advection of a 2000x96 global field over 1x32 processes for 100 steps.
+Advection time 2.26e-02 sec, GFLOPs rate=1.96e+01 (per core 6.115e-01)
+Average error of final field:  2.510e-04
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r64
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+r65
+
+======================================================================================
+                  Resource Usage on 2017-04-19 18:20:04:
+   Job Id:             4011256.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      0.24
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:00:03                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:10            Walltime Used: 00:00:09        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

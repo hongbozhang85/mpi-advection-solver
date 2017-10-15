@@ -1,0 +1,89 @@
+######parAdvect######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Advection time 8.41e-03 sec, GFLOPs rate=2.74e+01 (per core 8.548e-01)
+Average error of final field:  4.633e-04
+######parAdvect######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.41e-02 sec, GFLOPs rate=5.21e+01 (per core 1.629e+00)
+Average error of final field:  5.445e-06
+######parAdvect######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Advection time 4.23e-01 sec, GFLOPs rate=5.43e+01 (per core 1.698e+00)
+Average error of final field:  1.439e-07
+######parAdvect######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Advection time 4.38e+00 sec, GFLOPs rate=5.26e+01 (per core 1.643e+00)
+Average error of final field:  1.400e-08
+######overlap######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 1.82e-02 sec, GFLOPs rate=1.26e+01 (per core 3.939e-01)
+Average error of final field:  4.632e-04
+######overlap######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 6.35e-02 sec, GFLOPs rate=3.62e+01 (per core 1.131e+00)
+Average error of final field:  7.822e-06
+######overlap######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 9.78e-01 sec, GFLOPs rate=2.35e+01 (per core 7.347e-01)
+Average error of final field:  1.526e-07
+######overlap######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 11602 on node r1789 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+[r1793:19934] [[8601,1],18] ORTE_ERROR_LOG: Error in file ../../../../../../../../ompi/mca/pml/ob1/pml_ob1_recvreq.c at line 409
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1789
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+r1793
+Process testAdvect (PID 19932) was killed by kernel for exceeding memory limits. VM: 730104kB, RSS: 527008kB, File RSS: 5612kB
+Process testAdvect (PID 11602) was killed by kernel for exceeding memory limits. VM: 857596kB, RSS: 546624kB, File RSS: 5160kB
+Process testAdvect (PID 19932) was killed by kernel for exceeding memory limits. VM: 730104kB, RSS: 527008kB, File RSS: 5612kB
+Process testAdvect (PID 11602) was killed by kernel for exceeding memory limits. VM: 857596kB, RSS: 546624kB, File RSS: 5160kB
+Process testAdvect (PID 11602) was killed by kernel for exceeding memory limits. VM: 857596kB, RSS: 546624kB, File RSS: 5160kB
+Process testAdvect (PID 19932) was killed by kernel for exceeding memory limits. VM: 730104kB, RSS: 527008kB, File RSS: 5612kB
+
+======================================================================================
+                  Resource Usage on 2017-04-21 07:30:25:
+   Job Id:             4064428.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      14.80
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:04:11                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:09:15        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

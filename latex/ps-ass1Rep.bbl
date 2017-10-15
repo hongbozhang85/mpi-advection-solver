@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Frigo1999}
+M.~Frigo, C.~E. Leiserson, H.~Prokop, and S.~Ramachandran.
+\newblock Cache-oblivious algorithms.
+\newblock In {\em 40th Annual Symposium on Foundations of Computer Science
+  (Cat. No.99CB37039)}, pages 285--297, 1999.
+
+\bibitem{Frigo2005}
+Matteo Frigo and Volker Strumpen.
+\newblock Cache oblivious stencil computations.
+\newblock In {\em Proceedings of the 19th Annual International Conference on
+  Supercomputing}, ICS '05, pages 361--366, New York, NY, USA, 2005. ACM.
+
+\bibitem{Frigo2007}
+Matteo Frigo and Volker Strumpen.
+\newblock The memory behavior of cache oblivious stencil computations.
+\newblock {\em J. Supercomput.}, 39(2):93--112, February 2007.
+
+\bibitem{Prokop1999}
+Harald Prokop.
+\newblock Cache-oblivious algorithms.
+\newblock Master's thesis.
+
+\end{thebibliography}

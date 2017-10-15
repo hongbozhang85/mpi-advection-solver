@@ -1,0 +1,85 @@
+######vary r######
+Advection of a 20000x320 global field over 1x32 processes for 1 steps.
+Using wide halo technique, width=5
+Advection time 1.34e-02 sec, GFLOPs rate=1.10e+01 (per core 3.441e-01)
+Average error of final field:  2.260e-08
+######vary r######
+Advection of a 20000x320 global field over 1x32 processes for 10 steps.
+Using wide halo technique, width=5
+Advection time 4.43e-02 sec, GFLOPs rate=3.32e+01 (per core 1.037e+00)
+Average error of final field:  2.260e-07
+######vary r######
+Advection of a 20000x320 global field over 1x32 processes for 100 steps.
+Using wide halo technique, width=5
+Advection time 4.24e-01 sec, GFLOPs rate=3.47e+01 (per core 1.085e+00)
+Average error of final field:  2.260e-06
+######vary r######
+Advection of a 20000x320 global field over 1x32 processes for 1000 steps.
+Using wide halo technique, width=5
+Advection time 4.14e+00 sec, GFLOPs rate=3.56e+01 (per core 1.112e+00)
+Average error of final field:  2.260e-05
+######vary w######
+Advection of a 20000x320 global field over 1x32 processes for 100 steps.
+Using wide halo technique, width=1
+Advection time 3.12e-01 sec, GFLOPs rate=4.71e+01 (per core 1.472e+00)
+Average error of final field:  2.260e-06
+######vary w######
+Advection of a 20000x320 global field over 1x32 processes for 100 steps.
+Using wide halo technique, width=3
+Advection time 3.54e-01 sec, GFLOPs rate=4.16e+01 (per core 1.300e+00)
+Average error of final field:  2.260e-06
+######vary w######
+Advection of a 20000x320 global field over 1x32 processes for 100 steps.
+Using wide halo technique, width=6
+Advection time 4.47e-01 sec, GFLOPs rate=3.29e+01 (per core 1.028e+00)
+Average error of final field:  2.260e-06
+######vary w######
+Advection of a 20000x320 global field over 1x32 processes for 100 steps.
+Using wide halo technique, width=9
+Advection time 5.35e-01 sec, GFLOPs rate=2.75e+01 (per core 8.606e-01)
+Average error of final field:  2.260e-06
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1045
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+r1046
+
+======================================================================================
+                  Resource Usage on 2017-04-21 05:26:04:
+   Job Id:             4062074.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      2.00
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:03:44                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:01:15        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

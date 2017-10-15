@@ -1,0 +1,77 @@
+######parAdvect######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Advection time 1.36e-02 sec, GFLOPs rate=1.69e+01 (per core 5.295e-01)
+Average error of final field:  4.633e-04
+######parAdvect######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.49e-02 sec, GFLOPs rate=5.13e+01 (per core 1.602e+00)
+Average error of final field:  5.445e-06
+######parAdvect######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Advection time 4.27e-01 sec, GFLOPs rate=5.39e+01 (per core 1.685e+00)
+Average error of final field:  1.439e-07
+######parAdvect######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Advection time 4.31e+00 sec, GFLOPs rate=5.33e+01 (per core 1.667e+00)
+Average error of final field:  1.400e-08
+######overlap######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 1.58e-02 sec, GFLOPs rate=1.46e+01 (per core 4.557e-01)
+Average error of final field:  3.117e-01
+######overlap######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 4.91e-02 sec, GFLOPs rate=4.68e+01 (per core 1.463e+00)
+Average error of final field:  3.556e-01
+######overlap######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 4.89e-01 sec, GFLOPs rate=4.70e+01 (per core 1.468e+00)
+Average error of final field:  3.589e-02
+######overlap######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+[r69:24651] [[59739,1],14] ORTE_ERROR_LOG: Error in file ../../../../../../../../ompi/mca/pml/ob1/pml_ob1_recvreq.c at line 409
+--------------------------------------------------------------------------
+mpirun noticed that process rank 15 with PID 24653 on node r69 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r69
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+r948
+Process testAdvect (PID 29468) was killed by kernel for exceeding memory limits. VM: 1195736kB, RSS: 531668kB, File RSS: 5792kB
+Process testAdvect (PID 24653) was killed by kernel for exceeding memory limits. VM: 1347192kB, RSS: 538164kB, File RSS: 5792kB
+Process testAdvect (PID 29468) was killed by kernel for exceeding memory limits. VM: 1195736kB, RSS: 531668kB, File RSS: 5792kB
+Process testAdvect (PID 24653) was killed by kernel for exceeding memory limits. VM: 1347192kB, RSS: 538164kB, File RSS: 5792kB
+Process testAdvect (PID 24653) was killed by kernel for exceeding memory limits. VM: 1347192kB, RSS: 538164kB, File RSS: 5792kB
+Process testAdvect (PID 29468) was killed by kernel for exceeding memory limits. VM: 1195736kB, RSS: 531668kB, File RSS: 5792kB
+Process testAdvect (PID 24653) was killed by kernel for exceeding memory limits. VM: 1347192kB, RSS: 538164kB, File RSS: 5792kB

@@ -1,0 +1,18 @@
+\section{Task 8 Optional}
+
+I choose to implement overlapping code for $P>1$ as an optional task.
+
+\vspace{\baselineskip}
+
+The idea of the solutioin to this problem is similar to the case for $P=1$ in task 5.
+But in this case, the main part of \lstinline{parAdvectExtra} contains five parts. 
+\paragraph{First part} Non-blocking communication the left and right halo. Don't do \lstinline{MPI_Wait} in this step.
+\paragraph{Second part} Update the field values in the bulk. The definition of bulk is the same as that for $P=1$ in task 5.
+\paragraph{Third part} \lstinline{MPI_Wait} for left and right halo communication here.
+\paragraph{Fourth part} Top and bottom communications. I implement in non-blocking communication but \lstinline{MPI_Wait} immediately. Therefore, it is essential a blocking communication.
+\paragraph{Fifthe part} Update the field value on the boundary. The definition of boundary is the same as that for $P=1$ in task 5. Also use four temporary buffers.
+
+\vspace{\baselineskip}
+
+I run two experiments with parameters $P=4$, $Q=2$, $M=N=1000$, $r=100$ with and without \lstinline{-x} option. 
+The one with overlapping method uses time $0.152$s, and the one without overlapping method uses $0.154$s.

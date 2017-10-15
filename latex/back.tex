@@ -1,0 +1,25 @@
+
+\section{Deficiencies}
+I should make the code more robust. For example, $w$ should be smaller than $N_{loc}$
+and $M_{loc}$ mathematically. I should add some code to tell the user if they 
+input the wrong parameters.
+
+In task 4 ratio aspect effect, from model, the larger difference in $M$ and $N$,
+the more total cost. However, my results has some fluctuations.
+
+In task 5 overlapping, I use temporary buffer $utmpt$, $utmpb$, $utmpl$ and $utmpr$
+to update the field values on boundaries so that we can decouple the bulk calculation
+with the field values on the halo. The trade off of this approach is that we have to
+copy values to this four buffers, which generates some overhead. So in some situation,
+the overlapping method will be a little worse than  the non-overlapping one, although
+their different is very small.
+
+In task 8 overlapping for $P>1$, there are 4 communications in each iteration. But
+only first two of them is overlapped with computation. The last two communications
+don't overlap with computation. This is a deficiecy.
+
+\section{Feedback}
+In the experiments results, there is always some "fluctuations", I can't understand
+what's the reason of these fluctuations, so I think it is better to know some details
+on message communication, such as what's factor will affect $t_s$ and so on.
+

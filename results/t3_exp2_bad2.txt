@@ -1,0 +1,52 @@
+##########################
+Advection of a 1x1000 global field over 1x32 processes for 100 steps.
+Advection time 7.70e-03 sec, GFLOPs rate=2.99e-01 (per core 9.338e-03)
+Average error of final field:  9.959e-02
+##########################
+Advection of a 2x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.13e-03 sec, GFLOPs rate=1.11e+00 (per core 3.482e-02)
+Average error of final field:  9.959e-02
+##########################
+Advection of a 4x1000 global field over 1x32 processes for 100 steps.
+Advection time 6.03e-03 sec, GFLOPs rate=1.53e+00 (per core 4.766e-02)
+Average error of final field:  6.862e-02
+##########################
+Advection of a 6x1000 global field over 1x32 processes for 100 steps.
+Advection time 1.93e-03 sec, GFLOPs rate=7.15e+00 (per core 2.233e-01)
+Average error of final field:  3.536e-02
+##########################
+Advection of a 8x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.97e-02 sec, GFLOPs rate=3.70e-01 (per core 1.157e-02)
+Average error of final field:  2.081e-02
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r504
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738
+r738

@@ -1,0 +1,69 @@
+##########################
+Advection of a 1000x1000 global field over 2x12 processes for 100 steps.
+Advection time 7.54e-02 sec, GFLOPs rate=3.05e+01 (per core 1.272e+00)
+Average error of final field:  9.474e-03
+##########################
+Advection of a 1000x1000 global field over 3x8 processes for 100 steps.
+Advection time 1.35e-01 sec, GFLOPs rate=1.71e+01 (per core 7.119e-01)
+Average error of final field:  5.855e-02
+##########################
+Advection of a 1000x1000 global field over 4x6 processes for 100 steps.
+Advection time 1.34e-01 sec, GFLOPs rate=1.72e+01 (per core 7.176e-01)
+Average error of final field:  7.775e-02
+##########################
+Advection of a 1000x1000 global field over 6x4 processes for 100 steps.
+Advection time 5.36e-02 sec, GFLOPs rate=4.29e+01 (per core 1.788e+00)
+Average error of final field:  7.342e-02
+##########################
+Advection of a 1000x1000 global field over 8x3 processes for 100 steps.
+Advection time 6.09e-02 sec, GFLOPs rate=3.78e+01 (per core 1.575e+00)
+Average error of final field:  1.133e-01
+##########################
+Advection of a 1000x1000 global field over 12x2 processes for 100 steps.
+Advection time 6.09e-02 sec, GFLOPs rate=3.78e+01 (per core 1.573e+00)
+Average error of final field:  1.359e-01
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r38
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+r56
+
+======================================================================================
+                  Resource Usage on 2017-04-20 05:51:47:
+   Job Id:             4022502.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      0.32
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:00:30                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:00:12        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

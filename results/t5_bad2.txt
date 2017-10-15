@@ -1,0 +1,89 @@
+######parAdvect######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Advection time 9.86e-03 sec, GFLOPs rate=2.33e+01 (per core 7.291e-01)
+Average error of final field:  4.633e-04
+######parAdvect######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.36e-02 sec, GFLOPs rate=5.27e+01 (per core 1.648e+00)
+Average error of final field:  5.445e-06
+######parAdvect######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Advection time 4.25e-01 sec, GFLOPs rate=5.41e+01 (per core 1.691e+00)
+Average error of final field:  1.439e-07
+######parAdvect######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Advection time 4.32e+00 sec, GFLOPs rate=5.33e+01 (per core 1.664e+00)
+Average error of final field:  1.400e-08
+######overlap######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 1.79e-02 sec, GFLOPs rate=1.29e+01 (per core 4.026e-01)
+Average error of final field:  4.633e-04
+######overlap######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 9.35e-02 sec, GFLOPs rate=2.46e+01 (per core 7.683e-01)
+Average error of final field:  5.445e-06
+######overlap######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 1.51e+00 sec, GFLOPs rate=1.52e+01 (per core 4.762e-01)
+Average error of final field:  1.439e-07
+######overlap######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+[r413:15519] [[8894,1],30] ORTE_ERROR_LOG: Error in file ../../../../../../../../ompi/mca/pml/ob1/pml_ob1_recvreq.c at line 409
+--------------------------------------------------------------------------
+mpirun noticed that process rank 31 with PID 15521 on node r413 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r409
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+r413
+Process testAdvect (PID 15521) was killed by kernel for exceeding memory limits. VM: 730408kB, RSS: 525348kB, File RSS: 5788kB
+Process testAdvect (PID 12462) was killed by kernel for exceeding memory limits. VM: 857080kB, RSS: 525748kB, File RSS: 5412kB
+Process testAdvect (PID 15521) was killed by kernel for exceeding memory limits. VM: 730408kB, RSS: 525348kB, File RSS: 5788kB
+Process testAdvect (PID 12462) was killed by kernel for exceeding memory limits. VM: 857080kB, RSS: 525748kB, File RSS: 5412kB
+Process testAdvect (PID 12462) was killed by kernel for exceeding memory limits. VM: 857080kB, RSS: 525748kB, File RSS: 5412kB
+Process testAdvect (PID 15521) was killed by kernel for exceeding memory limits. VM: 730408kB, RSS: 525348kB, File RSS: 5788kB
+
+======================================================================================
+                  Resource Usage on 2017-04-21 08:07:51:
+   Job Id:             4065042.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      19.55
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:02:41                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:12:13        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

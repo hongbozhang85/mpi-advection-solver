@@ -1,0 +1,55 @@
+\section{Task 2 The Effect of Non-Blocking Communication}
+
+I add compilation option $BLOCK$ to make a selection on which kind of communication to be used.
+
+\begin{lstlisting}[language=c]
+# ifdef BLOCK
+   // blocking communication
+# endif
+# ifndef BLOCK
+  // non-blocking communication
+# endif
+\end{lstlisting}
+
+Since at current stage, we restrict $P=1$, so there are \textit{only} left-right communications. In this case,
+The communication time $t_{\textrm{comm}}$ and computation time $t_{\textrm{comp}}$ should be
+\begin{eqnarray*}
+	t_{\textrm{comm}} & \propto & 2\times \left( t_s + M_{loc}\cdot t_w  \right) \cdot r \propto M \cdot r \\
+	t_{\textrm{comp}} & \propto & N_{loc} \cdot M_{loc} \cdot r \propto \frac{M\cdot N}{Q}\cdot r
+\end{eqnarray*}
+where $r$ is the number of time steps in simulation, $N_{loc}, M_{loc}, M, N, Q$ have the same meaning as in the 
+assignment specification, and we have use the fact $M_{loc}=M, N_{loc} = N/Q$. Obviously, communication time
+is independent of $Q$, since there is no top-bottom communication in this case. Consequently, the parameters
+to maximize the impact of communication should be:
+
+\begin{itemize}
+	\item increase $r$.
+	\item use large $M$.
+	\item large $Q$ to reduce the percentage of time used by computation. Furthermore, large $Q$ will result in large 
+		$nproc$, so that there will be large mount of communication between different nodes, rather than between
+		processors in a socket only. This is a hardware factor to increase communication time.
+	\item use small $N$.
+\end{itemize}
+
+So I choose parameters $nprocs = 32, r = 100, N = 96$ and a varying $M = 2\times10^2, 2\times 10^3, 2\times10^4, 2\times10^5$. 
+The results can be found in Tab \ref{tab1}.
+
+\begin{table}[h]
+	\centering
+	\caption{The performance of blocking and non-blocking communication}
+	\label{tab1}
+	\begin{tabular}{lllll}
+		\hline
+		M            & $2\times 10^2$ & $2\times 10^3$ & $2\times 10^4$ & $2\times 10^5$ \\ \hline
+		blocking     & $1.45\times 10^{-2}$s &  $2.26\times 10^{-2}$s &   $9.96\times 10^{-2}$s &  $1.32$s \\
+		non-blocking & $6.66\times 10^{-2}$s & $4.34\times 10^{-2}$s & $8.48\times 10^{-2}$s & $1.20$s \\ \hline
+	\end{tabular}
+\end{table}
+
+From the results in Tab \ref{tab1}, for large $M$, non-blocking's performance is better than that of blocking. While, for
+small value of $M$, blocking communication is better. However, in a real fluid dynamics application, the number of 
+grid usually is very large due to the multiple scale nature of the fluid problem. For example, in a fluid model with
+convection and diffusion, the number of grid should be larger than the $\frac{\textrm{simulation scale}}{\textrm{diffusion scale}}$.
+Consequently, we will adopt non-blocking communication in the following.
+
+Therefore, I comment out the blocking communication code.

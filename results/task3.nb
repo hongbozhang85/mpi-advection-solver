@@ -1,0 +1,228 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6936,        219]
+NotebookOptionsPosition[      6289,        193]
+NotebookOutlinePosition[      6697,        209]
+CellTagsIndexPosition[      6654,        206]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Task", " ", "3", " ", "Experiment", " ", "Set", " ", "1"}], 
+  "Title"]], "Input",
+ CellChangeTimes->{{3.70160511716595*^9, 3.701605136949271*^9}, 
+   3.701605471885254*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Exp1", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"4.61", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "1"}]]}], ",", " ", 
+    RowBox[{"2.42", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "1"}]]}], ",", 
+    RowBox[{"1.30", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "1"}]]}], ",", 
+    RowBox[{"6.62", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "2"}]]}], ",", " ", 
+    RowBox[{"3.97", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "2"}]]}], ",", 
+    RowBox[{"6.26", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "2"}]]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.701605398202031*^9, 3.701605402313717*^9}, {
+  3.701605435213211*^9, 3.701605435922725*^9}, {3.701605486723116*^9, 
+  3.701605540845549*^9}, {3.701605651787435*^9, 3.701605658986547*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.4610000000000001`", ",", "0.242`", ",", "0.13`", ",", 
+   "0.06620000000000001`", ",", "0.039700000000000006`", ",", "0.0626`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.70160566022433*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Q", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{"2", ",", "4", ",", "8", ",", "16", ",", "32", ",", "64"}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.701605669465501*^9, 3.7016056790628*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "4", ",", "8", ",", "16", ",", "32", ",", "64"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.701605679844787*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"plotframedGT", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Style", "[", "\n", "     ", 
+        RowBox[{"\"\<\!\(\*SubscriptBox[\(t\), \(total\)]\)\>\"", 
+         RowBox[{"(*", 
+          RowBox[{",", "Italic"}], "*)"}], ",", " ", "\n", "     ", "17"}], 
+        "]"}], ","}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<\!\(\*SuperscriptBox[\(Q\), \(-1\)]\)\>\"", 
+         RowBox[{"(*", 
+          RowBox[{",", "Italic"}], "*)"}], ",", " ", "17"}], "]"}], ","}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", 
+        RowBox[{"Q", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}],
+        ",", 
+       RowBox[{
+       "Exp1", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "0", ",", 
+       RowBox[{"Length", "[", "Q", "]"}]}], "}"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", 
+   RowBox[{"Frame", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"True", ",", "True"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "True"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", "plotframedGT"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", 
+    RowBox[{"1", "/", "GoldenRatio"}]}], ",", 
+   RowBox[{"AxesStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"White", ",", "Dashed"}], "}"}]}], ",", 
+   RowBox[{"FrameTicksStyle", "\[Rule]", "16"}], ",", 
+   RowBox[{"PlotMarkers", "\[Rule]", 
+    RowBox[{"{", "Automatic", 
+     RowBox[{"(*", 
+      RowBox[{",", "Medium"}], "*)"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.701605697319822*^9, 3.70160585567463*^9}, {
+  3.701606142795111*^9, 3.701606198985809*^9}, {3.701606244515343*^9, 
+  3.701606297939798*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  GraphicsComplexBox[{{0.5, 0.4610000000000001}, {0.25, 0.242}, {0.125, 
+   0.13}, {0.0625, 0.06620000000000001}, {0.03125, 0.039700000000000006`}, {
+   0.015625, 0.0626}, {0.5, 0.4610000000000001}, {0.25, 0.242}, {0.125, 
+   0.13}, {0.0625, 0.06620000000000001}, {0.03125, 0.039700000000000006`}, {
+   0.015625, 0.0626}}, {
+    {Hue[0.67, 0.6, 0.6], InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->8.96], 7], InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->8.96], 8], InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->8.96], 9], InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->8.96], 10], InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->8.96], 11], InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->8.96], 12]}, {}}],
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0.1, 0.1},
+  AxesStyle->{
+    GrayLevel[1], 
+    Dashing[{Small, Small}]},
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      StyleBox[
+      "\"\\!\\(\\*SubscriptBox[\\(t\\), \\(total\\)]\\)\"", 17, StripOnInput -> 
+       False], TraditionalForm], ""}, {
+     FormBox[
+      StyleBox[
+      "\"\\!\\(\\*SuperscriptBox[\\(Q\\), \\(-1\\)]\\)\"", 17, StripOnInput -> 
+       False], TraditionalForm], ""}},
+  FrameTicksStyle->16,
+  ImageSize->{509., Automatic},
+  PlotRange->{All, All},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.701605845981487*^9, 3.701605857013476*^9}, 
+   3.701606205602188*^9, {3.701606246695873*^9, 3.70160626063065*^9}, 
+   3.701606299428053*^9}]
+}, Open  ]]
+},
+WindowSize->{1362, 729},
+WindowMargins->{{0, Automatic}, {Automatic, 18}},
+FrontEndVersion->"6.0 for Linux x86 (32-bit) (June 19, 2007)",
+StyleDefinitions->FrontEnd`FileName[{"Creative"}, "PrimaryColor.nb", 
+  CharacterEncoding -> "iso8859-1"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 209, 5, 70, "Input"],
+Cell[CellGroupData[{
+Cell[802, 30, 837, 24, 42, "Input"],
+Cell[1642, 56, 236, 6, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1915, 67, 217, 5, 42, "Input"],
+Cell[2135, 74, 161, 4, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2333, 83, 2054, 56, 153, "Input"],
+Cell[4390, 141, 1883, 49, 361, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

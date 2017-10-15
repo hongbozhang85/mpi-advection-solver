@@ -1,0 +1,54 @@
+######parAdvect######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.30e-02 sec, GFLOPs rate=5.35e+01 (per core 1.671e+00)
+Average error of final field:  5.445e-06
+######overlap######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 4.01e-02 sec, GFLOPs rate=5.73e+01 (per core 1.791e+00)
+Average error of final field:  3.821e-04
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1200
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+r1235
+
+======================================================================================
+                  Resource Usage on 2017-04-20 10:17:37:
+   Job Id:             4026720.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      1.63
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:00:08                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:01:01        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

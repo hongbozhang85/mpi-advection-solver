@@ -1,0 +1,67 @@
+\section{Task 4 The Effect of 2D Process Grids}
+
+\subsection{Implementation}
+The case of $P>1$ is similar to that of $P=1$ except the top-bottom communications. 
+Since the buffers in the same row is not continuous in memory, it will lead to two different approaches to do top-bottom communication. 
+One of them will have a better performance than the other. 
+\paragraph{Bad approach } send every element in a row one by one to its neighbors. Therefore, the cost is $(N_loc + 2 w)\cdot (t_s + t_w)$.
+This approach is expensive since it will run startup algorithm $N_{loc} + 2w$ times.
+\paragraph{Good approach } firstly collect all the element in a row to a continuous buffer, then send that buffer in one time to its neighbors.
+The cost is $t_s + (N_loc + 2 w) \cdot t_w$. 
+
+In my implementation, I used the "good approach".
+
+\subsection{Performance Model}
+The assumptions made in this model is similar to that in previous section, except that we loose the assumption $P=1$.
+We assume that $P>1$ in this section. We also assume $Q$ is larger than $1$. Furthermore, since we use the "good approach",
+in each top-bottom communication there will be some overhead due to collecting the elements to a buffer. However, this
+overhead is negligible.
+
+The communication cost and computation cost read
+\begin{eqnarray*}
+	t_{\textrm{comp}} &=& M_{\textrm{loc}} \cdot N_{\textrm{loc}} \cdot t_f \\
+	t_{\textrm{comm}} &=& 2 \left[ 2 t_s + \left( N_{\textrm{loc}} + M_{\textrm{loc}} + 2 w \right) \cdot t_w  \right] 
+\end{eqnarray*}
+$N_{loc} = N/Q$ and $M_{loc}= M/P$. In the left-right communications, only $M_{loc}$ double is sent and received, however, in
+the top-bottom communications, $N_{loc} + 2 w$ is communicated. There are four communications per iteration.
+
+Consequently, we can re-write down the performance model 
+\begin{eqnarray}
+	t_{\textrm{total}} &=& r \cdot \left( t_{\textrm{comp}} + t_{\textrm{comm}} \right) \\
+	&=& r \cdot \left[ 4 t_s + 2 \left( \frac{N}{Q} + \frac{M}{P} + 2 w \right) t_w + \frac{M\cdot N}{P\cdot Q} t_f \right] \label{equ2}
+\end{eqnarray}
+
+\subsection{Aspect Ratio Effect}
+We will analysis Eq \ref{equ2} in this subsection. Notice that $PQ = n$ ($n$ is the number of processes) is fixed, 
+$M=N$, the following important relation holds
+\[
+	\frac{1}{P} + \frac{1}{Q} = \frac{1}{P} + \frac{P}{n} \geq 2 \sqrt{\frac{1}{P}\cdot\frac{P}{n}} = \frac{2}{\sqrt{n}}
+\]
+the equality holds when $P=Q=\sqrt{n}$.
+
+Taking advantage of above relation, the total cost reads
+\begin{eqnarray}
+	t_{\textrm{total}} &\geq& r \cdot \left[ 4 t_s + 2 \left( \frac{2M}{\sqrt{P\cdot Q}} + 2 w \right) t_w + \frac{M^2}{P\cdot Q} t_f \right] \label{equ3}
+\end{eqnarray}
+Consequently, when $P=Q$, the equility holds and the performance is best. As the difference between $P$ and $Q$ increases, the total cost also increases.
+
+\subsection{Experiments}
+According to the analysis in above subsection, we set up the experiments as following. The number of processes is chosen to be $nproc = 24$, and we 
+do a set of experiments with varying $P = 2, 3, 4, 6, 8, 12$. Other parameters are $M=N=1000, r=100$. The results of the experiments are listed in Tab \ref{tab4}.
+The results fit about argument. We can see when $P=6, Q=4$, the cost is lowest among all the cases. It is interesting to see that the case of $P=6, Q=4$ is
+different from $P=4, Q=6$. The reason of this phenomena is the top-bottom communications have overhead, such as collecting elements in a row to a temporary buffers.
+
+\begin{table}[h]
+	\centering
+	\caption{Result of experiments to show the aspect ratio effects. Varying $P$}
+	\label{tab4}
+	\begin{tabular}{lllllll}
+		\hline
+		P                        & $2$ & $3$ & $4$ & $6$ & $8$ & $12$ \\ \hline
+		$t_{\textrm{total}}$ (s) & $7.41\times 10^{-2}$ & $1.00\times 10^{-1}$ & $7.66\times 10^{-2}$ & $6.27\times 10^{-2}$ & $7.74\times 10^{-2}$ & $6.52\times 10^{-2}$ \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{If $t_f$ is Smaller}
+In this model, if $t_f$ is decreased, the overall trends will not change. Since the prefactor of $t_f$ term is a constant for a given number of processes 
+and given $M$.

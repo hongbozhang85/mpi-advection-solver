@@ -1,0 +1,38 @@
+\section{Task 7 Literature Rewiew on Cache Oblivious}
+
+In following paragraphs, we will first introduce cache oblivious algorithm,
+and then discuss its application and impacts in stencil computation.
+
+\vspace{\baselineskip}
+
+Reduction of cache miss is one of important aspect of algorithm optimization.
+It is also true in parallel computation, which highly emphasizes on the performance of algorithm.
+Many programmers is aware of this fact and implement their algorithm with the consideration of cache miss.
+However, many of such algorithms will depend on the parameters of cache, such as cache line size and the number of cache line.
+These cache parameters are actually relevant to hardware, which is out of control of programmer.
+Consequently, one program optimized with some specific cache parameter may have very low performance on a machine with another set of cache parameters. 
+Furthermore, in modern computers, there are more than one level of caches with difference cache parameters, which make the above issues more serious.
+To solve this problem, Frigo and his collabrators \cite{Frigo1999} proposed the idea of cache oblivious algorithm for tall cache in parallel programming. 
+Their cache oblivious algorithm doesn't know the cache parameters, 
+but uses caches as effeciently as those algorithms who knows cache parameter foreahead.
+
+In the master thesis of Prokop \cite{Prokop1999} applied the cache oblivious method to stencil problem for the first time.
+But his algorithm can only work for one dimension space problem with square spacetime region.
+In 2005, Frigo proposed an algorithm which can work for arbitrary stencil and arbitrary spacetime dimension \cite{Frigo2005}.
+In this paper, the spacetime concerned in the problem is divided into \textit{trapezoidal regions}.
+If the flow velocity is zero, the the trapezodial regions become rectangular regions.
+Once the the field value $u$ at the bottom edge(or surface or cube, depending on the space dimension) of the trapezodial region is known, 
+the whole $u$ values in the trapezodial region can be obtained by applying the approciate fluid equations.
+These trapezodial regions can be divided into smaller trapezodial region with nearly equal size.
+This dividing process can be done iteratively until each trapezodial region is small enough to entirely fit in cache.
+Therefore, in this method, the field values are not calculated in the order of their spatial index any longer, 
+but in the order of trapezodial region index.
+Frigo proofs this method is cache efficient \cite{Frigo2005}.
+
+Making use of this method, cache miss is reduced. For example, Frigo \cite{Frigo2007} applied this method to heat diffusion problem.
+For two dimension problem, the cache miss will be reduced by a factor of 5 on average, 
+and for one dimension heat diffusion problem, the cache miss will be reduced to $1\%$ \cite{Frigo2007},
+Therefore, the cache oblivious method improves the performance of parallel stencil problem by reducing the cache miss.
+
+
+

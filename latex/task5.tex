@@ -1,0 +1,65 @@
+\section{Task 5 Overlapping Communication with Computation}
+
+\subsection{Implementation}
+The main part of function \lstinline{parAdvectOverlap(reps, *u, ldu)} is divided into three steps.
+\paragraph{First steps} Update the halo by non-blocking sends/receives, and \lstinline{MPI_Wait} will not be used in this part.
+\paragraph{Second steps} Update the bulk (inner) field. Bulk is the part of local field which doesn't adjacent to halo. To be more precisely,
+its index is $(r,c)$ where $r\in [w+1,N_{loc}+w-2]$ and $c\in [w+1,M_{loc}+w-2]$. Since there is no dependancy on
+halo field in updating the bulk field. Therefore, this part of computation can overlap with non-blocking communication.
+\paragraph{Third steps} Firstly \lstinline{MPI_Wait} is called in this part. Then making use of the updated halo values,
+we can update the boundary field in turn. The boundary is the grids between bulk and halo. To be more precisely,
+its index ranges are $(w,w) \sim (w,N_{loc}+w-1)$, $(M_{loc+w-1}, w) \sim (M_{loc+w-1}, N_{loc+w-1})$, 
+$(w+1, w) \sim (M_{loc+w-1}, w)$, $(w+1, N_{loc+w-1}) \sim (M_{loc+w-2}, N_{loc+w-1})$. \textit{Attetion}: in
+order to update the boundary field, four temporary buffer \lstinline{utmpr}, \lstinline{utmpl}, 
+\lstinline{utmpt} and \lstinline{utmpb} are required!
+They are used to update right, left, top and bottom boundary, respectively.
+
+\subsection{Performance}
+Using non-blocking sends and receives to update halo field firstly,
+the program will continue to run the subsequent codes (updating bulk field) which don't depend on halo field values.
+Therefore, the communication and computation are overlapping. 
+
+\paragraph{The effets on performance model} The performance model consist three terms, $t_f$ term, $t_w$ term
+and $t_s$ term. The last two terms are communication terms. The overlapping approach will decrease $t_w$ term 
+significantly by overlapping the communication with computation. However, it will not affect $t_s$ term too much.
+Furthermore, if the computation time of the concerned problem is small, the performance will not be improved too much, since the performance is improved by overlapping between computation and communication. We will use it as a guildline to design experiments.
+
+%\paragraph{Experiments} I did two sets of experiments with different $M$ value. The experiment setting is
+%$P=1, Q=32$ and $r=100$. The experiment results are shown in Tab \ref{tab5}, which shows overlapping's performance
+%is better than the one without overlapping.
+%
+
+\paragraph{Experiments} Following the guildline given in previous paragraph, we will vary $N$ and keep $M, r$ and $Q$ fixed. 
+The reason of doing so  is in the case of $P=1$, the communication cost only 
+depends on $M$ and computation cost depends on both $M$ and $N$. Fixing $M$ and varying $N$ is equivalent to keep communication cost fixed and change the computation cost.
+As we argued in previous paragraph, the performance of overlapping method depends on the mount of overlapping between communication and computation. Therefore, we increase $N$ to increase the overlapping part of computation. The experiment settings is $M=1000$, $Q=32$, $P=1$, $r=100$ and $N\in \{10^2, 10^3,10^4, 10^5\}$
+We run these experiments with and without overlapping method. The results are shown in Tab \ref{tab5}. Generally, the performance of 
+overlapping is better than that without overlapping, except for small $N$. For small $N$ overlapping is a little worse than non-overlapping, since
+in my overlapping algorithm, there is some overhead, such as copy values to a temporary field buffers which are used to calculate
+boundaries. However, for large $N$, the performance of overlapping is better, and the larger value of $N$, the better performance.
+%We also run some additoinal simulation to make the conclusion more solid. These 
+%additoinal experiment results are listed in Tab \ref{tab6}. Indeed, overlapping is better.
+
+\begin{table}[h]
+	\centering
+	\caption{Comparison between overlapping and non-overlapping. Varing $N$}
+	\label{tab5}
+	\begin{tabular}{lllll}
+		\hline
+		N               & $10^2$ & $10^3$ & $10^4$ & $10^5$ \\ \hline
+		without overlap & $1.08\times10^{-2}$s & $4.13\times10^{-2}$s & $4.24\times10^{-1}$s & $4.19$s  \\ 
+		with overlap    & $1.40\times10^{-2}$s & $4.37\times10^{-2}$s & $4.12\times10^{-1}$s & $4.16$s  \\ \hline
+	\end{tabular}
+\end{table}
+
+%\begin{table}[h]
+%	\centering
+%	\caption{Comparison between overlapping and non-overlapping. Keeping $M=N$}
+%	\label{tab6}
+%	\begin{tabular}{lll}
+%		\hline
+%		                & $M=N=2000$ & $M=N=1000$          \\ \hline
+%		without overlap & $0.163$s   & $4.3\times10^{-2}$s  \\ 
+%		with overlap    & $0.153$s   & $4.01\times10^{-2}$s \\ \hline
+%	\end{tabular}
+%\end{table}

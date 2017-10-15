@@ -1,0 +1,65 @@
+######vary w######
+Advection of a 20000x10000 global field over 4x8 processes for 100 steps.
+Using wide halo technique, width=1
+Advection time 8.65e+00 sec, GFLOPs rate=5.32e+01 (per core 1.661e+00)
+Average error of final field:  2.415e-09
+######vary w######
+Advection of a 20000x10000 global field over 4x8 processes for 100 steps.
+Using wide halo technique, width=5
+Advection time 8.52e+00 sec, GFLOPs rate=5.40e+01 (per core 1.688e+00)
+Average error of final field:  2.415e-09
+######vary w######
+Advection of a 20000x10000 global field over 4x8 processes for 100 steps.
+Using wide halo technique, width=10
+Advection time 8.21e+00 sec, GFLOPs rate=5.61e+01 (per core 1.752e+00)
+Average error of final field:  2.415e-09
+######vary w######
+Advection of a 20000x10000 global field over 4x8 processes for 100 steps.
+Using wide halo technique, width=500
+Advection time 1.67e+01 sec, GFLOPs rate=2.76e+01 (per core 8.618e-01)
+Average error of final field:  2.415e-09
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r50
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+r59
+
+======================================================================================
+                  Resource Usage on 2017-04-21 05:42:26:
+   Job Id:             4062306.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      3.31
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:23:45                                   
+   Memory Requested:   16.0GB                Memory Used: 1.59GB          
+   Walltime requested: 00:03:00            Walltime Used: 00:02:04        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================

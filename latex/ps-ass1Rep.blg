@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ps-ass1Rep.aux
+A level-1 auxiliary file: overview.aux
+A level-1 auxiliary file: task1.aux
+A level-1 auxiliary file: task2.aux
+A level-1 auxiliary file: task3.aux
+A level-1 auxiliary file: task4.aux
+A level-1 auxiliary file: task5.aux
+A level-1 auxiliary file: task6.aux
+A level-1 auxiliary file: task7.aux
+A level-1 auxiliary file: task8.aux
+A level-1 auxiliary file: back.aux
+The style file: plain.bst
+Database file #1: citation.bib
+Warning--empty school in Prokop1999
+Warning--empty year in Prokop1999
+You've used 4 entries,
+            2118 wiz_defined-function locations,
+            536 strings with 4666 characters,
+and the built_in function-call counts, 1515 in all, are:
+= -- 155
+> -- 56
+< -- 2
++ -- 23
+- -- 18
+* -- 99
+:= -- 239
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 21
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 65
+empty$ -- 121
+format.name$ -- 18
+if$ -- 330
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 3
+newline$ -- 23
+num.names$ -- 8
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 17
+quote$ -- 0
+skip$ -- 53
+stack$ -- 0
+substring$ -- 103
+swap$ -- 22
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 2
+while$ -- 15
+width$ -- 5
+write$ -- 47
+(There were 2 warnings)

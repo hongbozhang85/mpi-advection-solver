@@ -1,0 +1,81 @@
+######parAdvect######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Advection time 1.08e-02 sec, GFLOPs rate=2.12e+01 (per core 6.637e-01)
+Average error of final field:  4.633e-04
+######parAdvect######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Advection time 4.48e-02 sec, GFLOPs rate=5.14e+01 (per core 1.606e+00)
+Average error of final field:  5.445e-06
+######parAdvect######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Advection time 4.39e-01 sec, GFLOPs rate=5.24e+01 (per core 1.637e+00)
+Average error of final field:  1.439e-07
+######parAdvect######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Advection time 4.33e+00 sec, GFLOPs rate=5.31e+01 (per core 1.658e+00)
+Average error of final field:  1.400e-08
+######overlap######
+Advection of a 1000x100 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 1.20e-02 sec, GFLOPs rate=1.92e+01 (per core 5.985e-01)
+Average error of final field:  1.100e-03
+######overlap######
+Advection of a 1000x1000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 4.19e-02 sec, GFLOPs rate=5.49e+01 (per core 1.714e+00)
+Average error of final field:  3.821e-04
+######overlap######
+Advection of a 1000x10000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 4.33e-01 sec, GFLOPs rate=5.31e+01 (per core 1.658e+00)
+Average error of final field:  4.243e-06
+######overlap######
+Advection of a 1000x100000 global field over 1x32 processes for 100 steps.
+Using overlap communication/computation
+Advection time 4.29e+00 sec, GFLOPs rate=5.36e+01 (per core 1.674e+00)
+Average error of final field:  5.477e-08
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2508
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+r2518
+
+======================================================================================
+                  Resource Usage on 2017-04-20 13:55:31:
+   Job Id:             4036688.r-man2
+   Project:            c37
+   Exit Status:        0
+   Service Units:      8.40
+   NCPUs Requested:    32                     NCPUs Used: 32              
+                                           CPU Time Used: 00:05:45                                   
+   Memory Requested:   16.0GB                Memory Used: 0B              
+   Walltime requested: 00:00:30            Walltime Used: 00:05:15        
+   JobFS requested:    200.0MB                JobFS used: 0B              
+======================================================================================
